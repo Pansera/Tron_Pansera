@@ -9,16 +9,35 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
-
+/**
+ * Class qui gère le déplacement des joueurs
+ * @author Vince
+ *
+ */
 public class yourclass extends Core implements KeyListener, MouseListener,
 		MouseMotionListener {
+	/**
+	 * //position du joueur 1
+	 */
 	int centrex1 = 40;
-	int centrey1 = 40;
+	int centrey1 = 40;		
+	/**
+	 * //position du joueur 2
+	 */
 	int centrex2 = 1560;
 	int centrey2 = 860;
+	/**
+	 * 	//direction du joueur 1
+	 */
 	int currentDirection1 = 1;
+	/**
+	 * //direction du joueur 2
+	 */
 	int currentDirection2 = 3;
-	int moveAmount = 5;
+	/**
+	 * //vitesse de déplacement
+	 */
+	int moveAmount = 5;		
 	ArrayList<Integer> pathx1 = new ArrayList();
 	ArrayList<Integer> pathy1 = new ArrayList();
 	ArrayList<Integer> pathx2 = new ArrayList();
@@ -36,8 +55,10 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 	public static void main(String[] args) {
 		new yourclass().run();
 	}
-
-	public void draw(Graphics2D g) {
+/**
+ * 		//gestion du mouvement des joueurs (permet d'avancer)
+ */
+	public void draw(Graphics2D g) {	
 		switch(currentDirection1){
 		case 0:
 			if (centrey1>0){
@@ -118,7 +139,7 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 	}
 
 	public void keyPressed(KeyEvent e) {
-		/*if (e.getKeyCode() == KeyEvent.VK_UP) {
+		/*if (e.getKeyCode() == KeyEvent.VK_UP) {		//changement de direction du J1 avec 4 touches
 			if (currentDirection1 != 2){
 			currentDirection1 = 0;
 			}
@@ -135,7 +156,10 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 				currentDirection1 = 3;
 				}
 		}*/
-						if(e.getKeyCode() == KeyEvent.VK_O)
+		/**
+		 * //Changement de direction du J2 avec 2 touches
+		 */
+						if(e.getKeyCode() == KeyEvent.VK_A)	
 							{
 							if(currentDirection1 == 0){
 							currentDirection1 = 3;
@@ -150,7 +174,7 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 								currentDirection1 = 2;
 							}
 							}
-						if(e.getKeyCode() == KeyEvent.VK_P)
+						if(e.getKeyCode() == KeyEvent.VK_Z)
 						{
 							if(currentDirection1 == 0){
 								currentDirection1 = 1;
@@ -165,7 +189,7 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 								currentDirection1 = 0;
 							}
 		}
-		/*if (e.getKeyCode() == KeyEvent.VK_Z){
+		/*if (e.getKeyCode() == KeyEvent.VK_Z){		//changement de direction du J2 avec 4 touches
 			if (currentDirection2 != 2){
 			currentDirection2 = 0;
 			}
@@ -182,8 +206,10 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 				currentDirection2 = 3;
 				}
 		}*/
-	
-															if(e.getKeyCode() == KeyEvent.VK_A)
+	/**
+	 * //Changement de direction du J2 avec 2 touches
+	 */
+															if(e.getKeyCode() == KeyEvent.VK_O)	
 															{
 																if(currentDirection2 == 0){
 																	currentDirection2 = 3;
@@ -198,7 +224,7 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 																	currentDirection2 = 2;
 																}
 															}
-															if(e.getKeyCode() == KeyEvent.VK_Z)
+															if(e.getKeyCode() == KeyEvent.VK_P)
 															{
 																if(currentDirection2 == 0){
 																	currentDirection2 = 1;
@@ -214,35 +240,60 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 																}
 															}
 	}
-
+/**
+ * Gestionnaire d'évènement clavier
+ */
 	public void keyReleased(KeyEvent e) {
 
 	}
-
+	/**
+	 * Gestionnaire d'évènement clavier
+	 */
 	public void keyTyped(KeyEvent arg0) {
 
 	}
-
+/**
+ * Gère des évènements à la souris 
+ * (inutile dans mon cas puisque je n'utilise pas la souris, mais ça pourrait servir si on veut faire évoluer le jeu)
+ */
 	public void mouseClicked(MouseEvent e) {
 
 	}
-
+	/**
+	 * Gère des évènements à la souris 
+	 * (inutile dans mon cas puisque je n'utilise pas la souris, mais ça pourrait servir si on veut faire évoluer le jeu)
+	 */
 	public void mouseEntered(MouseEvent arg0) {
 	}
-
+	/**
+	 * Gère des évènements à la souris 
+	 * (inutile dans mon cas puisque je n'utilise pas la souris, mais ça pourrait servir si on veut faire évoluer le jeu)
+	 */
 	public void mouseExited(MouseEvent arg0) {
 	}
-
+	/**
+	 * Gère des évènements à la souris 
+	 * (inutile dans mon cas puisque je n'utilise pas la souris, mais ça pourrait servir si on veut faire évoluer le jeu)
+	 */
 	public void mousePressed(MouseEvent e) {
 	}
-
+	/**
+	 * Gère des évènements à la souris 
+	 * (inutile dans mon cas puisque je n'utilise pas la souris, mais ça pourrait servir si on veut faire évoluer le jeu)
+	 */
 	public void mouseReleased(MouseEvent e) {
 	}
-
+	/**
+	 * Gère des évènements à la souris 
+	 * (inutile dans mon cas puisque je n'utilise pas la souris, mais ça pourrait servir si on veut faire évoluer le jeu)
+	 */
 	public void mouseDragged(MouseEvent e) {
 
 	}
-
+	/**
+	 * Gère des évènements à la souris 
+	 * (inutile dans mon cas puisque je n'utilise pas la souris, mais ça pourrait servir si on veut faire évoluer le jeu)
+	 */
 	public void mouseMoved(MouseEvent e) {
 
 	}

@@ -5,7 +5,12 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+/**
+ * Classe qui gère l'affichage de la fenêtre 
+ * (Vu qu'ici on utilise le Fullscreen ça demande plus de précautions, comme la méthode getCompatibleDisplayModes)
+ * @author Vince
+ *
+ */
 public class ScreenManager {
 	
 	private GraphicsDevice vc;
@@ -14,8 +19,11 @@ public class ScreenManager {
 		GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		vc = e.getDefaultScreenDevice();
 	}
-	
-	public DisplayMode[] getCompatibleDisplayModes(){
+	/**
+	 * Récupère la résolution de l'écran
+	 * @return
+	 */
+	public DisplayMode[] getCompatibleDisplayModes(){	
 		return vc.getDisplayModes();
 	}
 	

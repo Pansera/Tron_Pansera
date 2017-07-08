@@ -1,4 +1,6 @@
 import java.awt.BasicStroke;
+
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
@@ -9,6 +11,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+
+import javax.swing.*;
+
 /**
  * Class qui gère le déplacement des joueurs
  * @author Vince
@@ -119,11 +124,45 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 			}
 			break;
 		}
-	    for (int x = 0;x<pathx1.size();x++){
+
+	    /*for (int x = 0;x<pathx1.size();x++){
 	    	if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x))) || ((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x))) || ((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x))) || ((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
+	    		
+	    		JOptionPane d = new JOptionPane();
+	    		d.showMessageDialog(d, "Le joueur 1 a gagné", 
+	    		      "le titre", JOptionPane.INFORMATION_MESSAGE);
 	    		System.exit(0);
 	    	}
-	    }
+	    }*/
+		for (int x = 0;x<pathx1.size();x++){
+	    	if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x)))){
+	    		
+	    		JOptionPane d = new JOptionPane();
+	    		d.showMessageDialog(d, "Le joueur 1(vert) s'est suicidé !\nLe joueur 2(rouge) gagne", 
+	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
+	    		System.exit(0);
+	    	}
+	    	else if((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x)) )
+	    	{
+	    		JOptionPane d = new JOptionPane();
+	    		d.showMessageDialog(d, "Le joueur 2(rouge) s'est suicidé !\nLe joueur 1(vert) gagne", 
+	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
+	    		System.exit(0);
+	    	}
+	    	else if(((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x)))){
+	    		JOptionPane d = new JOptionPane();
+	    		d.showMessageDialog(d, "Le joueur 2(rouge) a gagné parce que le joueur 1(vert) lui foncé dedans", 
+	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
+	    		System.exit(0);
+	    	}
+	    	else if(((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
+	    		JOptionPane d = new JOptionPane();
+	    		d.showMessageDialog(d, "Le joueur 1(vert) a gagné parce que le joueur 2(rouge) lui foncé dedan", 
+	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
+	    		System.exit(0);
+	    	}
+		}
+		
 		pathx1.add(centrex1);
 		pathy1.add(centrey1);
 		pathx2.add(centrex2);

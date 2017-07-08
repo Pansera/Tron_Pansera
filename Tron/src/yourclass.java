@@ -10,6 +10,11 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -62,6 +67,9 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 	}
 /**
  * 		//gestion du mouvement des joueurs (permet d'avancer)
+ * @throws ClassNotFoundException 
+ * @throws IllegalAccessException 
+ * @throws InstantiationException 
  */
 	public void draw(Graphics2D g) {	
 		switch(currentDirection1){
@@ -138,26 +146,57 @@ public class yourclass extends Core implements KeyListener, MouseListener,
 	    	if (((centrex1 == pathx1.get(x)) && (centrey1 == pathy1.get(x)))){
 	    		
 	    		JOptionPane d = new JOptionPane();
-	    		d.showMessageDialog(d, "Le joueur 1(vert) s'est suicidé !\nLe joueur 2(rouge) gagne", 
+	    		JOptionPane.showMessageDialog(d, "Le joueur 1(vert) s'est suicidé !\nLe joueur 2(rouge) gagne", 
 	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
+
+	    	        
+	    	      /*  Connection con = null;
+	    	        java.sql.Statement stmt = null;
+
+	    	        try {
+	    	            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tron", "root", "");
+	    	            stmt = con.createStatement();
+	    	            ResultSet rset = stmt.executeQuery("Insert into tron(Vainqueur,Temps) values ('1','1')");
+	    	            System.out.println("Connection réussie");
+	    	        } catch (SQLException e) {
+	    	            e.printStackTrace();
+	    	        } finally {
+
+	    	            if (stmt != null) {
+	    	                try {
+	    	                    // Le stmt.close ferme automatiquement le rset.
+	    	                    stmt.close();
+	    	                } catch (SQLException e) {
+	    	                    e.printStackTrace();
+	    	                }
+	    	            }
+
+	    	            if (con != null) {
+	    	                try {
+	    	                    con.close();
+	    	                } catch (SQLException e) {
+	    	                    e.printStackTrace();
+	    	                }
+	    	            }
+	    	        }*/
 	    		System.exit(0);
 	    	}
 	    	else if((centrex2 == pathx2.get(x)) && (centrey2 == pathy2.get(x)) )
 	    	{
 	    		JOptionPane d = new JOptionPane();
-	    		d.showMessageDialog(d, "Le joueur 2(rouge) s'est suicidé !\nLe joueur 1(vert) gagne", 
+	    		JOptionPane.showMessageDialog(d, "Le joueur 2(rouge) s'est suicidé !\nLe joueur 1(vert) gagne", 
 	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
 	    		System.exit(0);
 	    	}
 	    	else if(((centrex1 == pathx2.get(x)) && (centrey1 == pathy2.get(x)))){
 	    		JOptionPane d = new JOptionPane();
-	    		d.showMessageDialog(d, "Le joueur 2(rouge) a gagné parce que le joueur 1(vert) lui foncé dedans", 
+	    		JOptionPane.showMessageDialog(d, "Le joueur 2(rouge) a gagné parce que le joueur 1(vert) lui a foncé dedans", 
 	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
 	    		System.exit(0);
 	    	}
 	    	else if(((centrex2 == pathx1.get(x)) && (centrey2 == pathy1.get(x)))){
 	    		JOptionPane d = new JOptionPane();
-	    		d.showMessageDialog(d, "Le joueur 1(vert) a gagné parce que le joueur 2(rouge) lui foncé dedan", 
+	    		JOptionPane.showMessageDialog(d, "Le joueur 1(vert) a gagné parce que le joueur 2(rouge) lui a foncé dedan", 
 	    		      "Fin du jeu!", JOptionPane.INFORMATION_MESSAGE);
 	    		System.exit(0);
 	    	}

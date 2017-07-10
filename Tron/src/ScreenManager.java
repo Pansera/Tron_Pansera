@@ -117,20 +117,7 @@ public class ScreenManager {
 			return w.getWidth();
 		}else{
 			return 0;
-		}
-	}
-	/**
-	 * Récupère la largeur de l'écran
-	 * @return
-	 */
-	public int getWidth(){
-		Window w = vc.getFullScreenWindow();
-		if(w != null){
-			return w.getWidth();
-		}else{
-			return 0;
-		}
-	}
+		}}
 	/**
 	 * Récupère la hauteur de l'écran
 	 * @return

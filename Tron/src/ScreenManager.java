@@ -56,7 +56,10 @@ public class ScreenManager {
 		}
 		return true;
 	}
-	
+	/**
+	 * Définition des caractéristiques de notre fenetre
+	 * @param dm
+	 */
 	public void setFullScreen(DisplayMode dm){
 		JFrame f = new JFrame();
 		f.setUndecorated(true);
@@ -71,7 +74,10 @@ public class ScreenManager {
 			f.createBufferStrategy(2);
 		}
 	}
-	
+	/**
+	 * Mise en place des buffers
+	 * @return
+	 */
 	public Graphics2D getGraphics(){
 		Window w = vc.getFullScreenWindow();
 		if(w != null){
@@ -82,7 +88,9 @@ public class ScreenManager {
 			return null;
 		}
 	}
-	
+	/**
+	 * Mise à jour de l'affichage à l'écran
+	 */
 	public void update(){
 		Window w = vc.getFullScreenWindow();
 		if(w != null){
@@ -92,11 +100,17 @@ public class ScreenManager {
 			}
 		}
 	}
-	
+	/**
+	 * Déclaration d'une nouvelle Fenetre de type Windows
+	 * @return
+	 */
 	public Window getFullScreenWindow(){
 		return vc.getFullScreenWindow();
 	}
-	
+	/**
+	 * Récupère la largeur de l'écran
+	 * @return
+	 */
 	public int getWidth(){
 		Window w = vc.getFullScreenWindow();
 		if(w != null){
@@ -105,7 +119,22 @@ public class ScreenManager {
 			return 0;
 		}
 	}
-	
+	/**
+	 * Récupère la largeur de l'écran
+	 * @return
+	 */
+	public int getWidth(){
+		Window w = vc.getFullScreenWindow();
+		if(w != null){
+			return w.getWidth();
+		}else{
+			return 0;
+		}
+	}
+	/**
+	 * Récupère la hauteur de l'écran
+	 * @return
+	 */
 	public int getHeight(){
 		Window w = vc.getFullScreenWindow();
 		if(w != null){
@@ -114,7 +143,9 @@ public class ScreenManager {
 			return 0;
 		}
 	}
-	
+	/**
+	 * Méthode qui ferme la fenetre
+	 */
 	public void restoreScreen(){
 		Window w = vc.getFullScreenWindow();
 		if(w != null){
@@ -122,7 +153,13 @@ public class ScreenManager {
 		}
 		vc.setFullScreenWindow(null);
 	}
-	
+	/**
+	 * Génère une image adaptée à la définition de l'écran
+	 * @param w
+	 * @param h
+	 * @param t
+	 * @return
+	 */
 	public BufferedImage createCompatibaleimage(int w, int h, int t){
 			Window win = vc.getFullScreenWindow();
 			if(win != null){
